@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RideAlongAPI", "RideAlongAPI\RideAlongAPI.csproj", "{3982CD30-DD69-4CD8-9BC3-F73E9D283CF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RideAlongAPI.Tests", "RideAlongAPI.Tests\RideAlongAPI.Tests.csproj", "{1DC33B01-8F20-46C5-A3F1-5A2BC90D5967}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3982CD30-DD69-4CD8-9BC3-F73E9D283CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3982CD30-DD69-4CD8-9BC3-F73E9D283CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3982CD30-DD69-4CD8-9BC3-F73E9D283CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3982CD30-DD69-4CD8-9BC3-F73E9D283CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC33B01-8F20-46C5-A3F1-5A2BC90D5967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC33B01-8F20-46C5-A3F1-5A2BC90D5967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC33B01-8F20-46C5-A3F1-5A2BC90D5967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC33B01-8F20-46C5-A3F1-5A2BC90D5967}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A778734B-A8C2-4F24-A7C1-7DBB880AF69C}
+	EndGlobalSection
+EndGlobal
