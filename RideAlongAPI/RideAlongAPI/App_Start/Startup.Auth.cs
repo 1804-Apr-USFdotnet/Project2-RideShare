@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using RideAlongAPI.Providers;
 using RideAlongAPI.Models;
+using RideAlongAPI.Persistence;
 
 namespace RideAlongAPI
 {
