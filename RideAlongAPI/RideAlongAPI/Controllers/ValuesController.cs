@@ -10,7 +10,7 @@ namespace RideAlongAPI.Controllers
     [Authorize]
     public class ValuesController : ApiController
     {
-        //testing webHOOK
+        //testing webhook
         // GET api/values
         public IEnumerable<string> Get()
         {
