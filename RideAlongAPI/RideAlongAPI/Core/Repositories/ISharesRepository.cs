@@ -6,6 +6,9 @@ namespace RideAlongAPI.Core.Repositories
 {
     public interface ISharesRepository : IRepository<Share>
     {
+        IEnumerable<Share> GetDesiredShare(string startCity, string goalCity);
+        IEnumerable<Share> GetSeatsDescending();
+        IEnumerable<Share> GetDateDescending();
 
     }
 }
