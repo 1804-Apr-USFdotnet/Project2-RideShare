@@ -13,7 +13,7 @@ node('master') {
         
         stage('analyze') {
          dir('RideAlongMVC') {
-                bat "SonarScanner.MSBuild.exe begin /k:\"project-2\" /d:sonar.organization=\"asanjose-github\" /v:0.1.0"
+                bat "SonarScanner.MSBuild.exe begin /k:\"mvc-part\" /d:sonar.organization=\"asanjose-github\" /v:0.1.0"
                 bat 'msbuild RideAlongMVC /t:rebuild'
                 bat "SonarScanner.MSBuild.exe end"
             }
