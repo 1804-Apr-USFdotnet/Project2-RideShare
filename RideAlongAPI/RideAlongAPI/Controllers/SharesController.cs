@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using RideAlongAPI.Core.Domain;
 using RideAlongAPI.Persistence;
 
 namespace RideAlongAPI.Controllers
@@ -32,24 +33,55 @@ namespace RideAlongAPI.Controllers
         }
 
         // GET: api/Shares/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var share = _unitOfWork.Shares.Get(id);
+
+            if (share == null)
+                return NotFound();
+
+            return Ok(share);
         }
 
         // POST: api/Shares
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post(Share share)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            _unitOfWork.Shares.Add(share);
+            _unitOfWork.Complete();
+
+            return Created(new Uri(Request.RequestUri + "/" + share.Id), share);
         }
 
         // PUT: api/Shares/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, Share share)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var shareInDb = _unitOfWork.Shares.Get(id);
+
+            if (shareInDb == null)
+                return NotFound();
+
+            _unitOfWork.Shares.Update(share);
+
+            return Ok();
         }
 
         // DELETE: api/Shares/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            var share = _unitOfWork.Shares.Get(id);
+
+            if (share == null)
+                return NotFound();
+
+            _unitOfWork.Shares.Remove(share);
+
+            return Ok();
         }
     }
 }
