@@ -1,18 +1,34 @@
-﻿using System;
+﻿using RideAlongAPI.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using RideAlongAPI.Persistence;
 
 namespace RideAlongAPI.Controllers
 {
     public class SharesController : ApiController
     {
-        // GET: api/Shares
-        public IEnumerable<string> Get()
+        private readonly IUnitOfWork _unitOfWork;
+
+        //public SharesController()
+        //    : this(new UnitOfWork(new ApplicationDbContext()))
+        //{
+        //}
+
+        public SharesController(IUnitOfWork unitOfWork)
         {
-            return new string[] { "value1", "value2" };
+            _unitOfWork = unitOfWork;
+        }
+
+        // GET: api/Shares
+        public IHttpActionResult Get()
+        {
+            var shares = _unitOfWork.Shares.GetAll();
+
+            return Ok(shares);
         }
 
         // GET: api/Shares/5
