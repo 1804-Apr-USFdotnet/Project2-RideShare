@@ -63,3 +63,27 @@ body {
 .maroon-c {
   color: #9C3848 !important;
 }
+
+.light-grey-bg {
+  backgound-color: #EDF7F6 !important;
+}
+
+.light-grey-c {
+  color: #EDF7F6 !important;
+}
+
+.grey-bg {
+  backgound-color: #C0BDA5 !important;
+}
+
+.grey-c {
+  color: #C0BDA5 !important;
+}
+
+.black-bg {
+  backgound-color: #14080E !important;
+}
+
+.black-c {
+  color: #14080E !important;
+}
