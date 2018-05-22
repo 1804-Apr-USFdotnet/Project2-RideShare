@@ -21,3 +21,45 @@ body {
 .clickable {
   cursor: pointer;
 }
+
+/* BRAND COLOR STYLES */
+
+.dark-blue-bg {
+  backgound-color: #1E3888 !important;
+}
+
+.dark-blue-c {
+  color: #1E3888 !important;
+}
+
+.light-blue-bg {
+  backgound-color: #47A8BD !important;
+}
+
+.light-blue-c {
+  color: #47A8BD !important;
+}
+
+.yellow-bg {
+  backgound-color: #F5E663 !important;
+}
+
+.yellow-c {
+  color: #F5E663 !important;
+}
+
+.orange-bg {
+  backgound-color: #FFAD69 !important;
+}
+
+.orange-c {
+  color: #FFAD69 !important;
+}
+
+.maroon-bg {
+  backgound-color: #9C3848 !important;
+}
+
+.maroon-c {
+  color: #9C3848 !important;
+}
