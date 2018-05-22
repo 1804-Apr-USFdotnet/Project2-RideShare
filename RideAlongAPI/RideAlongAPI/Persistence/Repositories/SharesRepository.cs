@@ -40,5 +40,25 @@ namespace RideAlongAPI.Persistence.Repositories
         {
             return Context.Shares.OrderByDescending(s => s.Seats).ToList();
         }
+
+        public IEnumerable<Share> GetSearchConditions(string desiredText)
+        {
+            return Context.Shares.Where(x => x.DepartureCity.Contains(desiredText) || x.DestinationCity.Contains(desiredText) || x.Seats.ToString() == desiredText).ToList();
+        }
+
+        public IEnumerable<Share> GetDepartureCityWithMostShares()
+        {
+            var shares = Context.Shares.GroupBy(x => x.DepartureCity)
+                .OrderBy(x => x.Count()).FirstOrDefault().ToList();
+            return shares;
+        }
+
+        public IEnumerable<Share> GetDestinationCityWithMostShares()
+        {
+            var shares = Context.Shares.GroupBy(x => x.DestinationCity)
+                .OrderBy(x => x.Count()).FirstOrDefault().ToList();
+            return shares;
+        }
+
     }
 }
