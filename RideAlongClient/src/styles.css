@@ -6,7 +6,9 @@
  * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
- */
+*/
+
+/* general custom */
 
 body {
   padding-top: 54px;
@@ -16,6 +18,12 @@ body {
   body {
     padding-top: 56px;
   }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .clickable {
@@ -86,4 +94,12 @@ body {
 
 .black-c {
   color: #14080E !important;
+}
+
+/* custom nav */
+
+.nav-item-border {
+  margin: .25rem;
+  border: 1px solid #F5E663;
+  border-radius: 3px;
 }
