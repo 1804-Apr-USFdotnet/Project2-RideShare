@@ -17,3 +17,73 @@ body {
     padding-top: 56px;
   }
 }
+
+.clickable {
+  cursor: pointer;
+}
+
+/* BRAND COLOR STYLES */
+
+.dark-blue-bg {
+  background-color: #1E3888 !important;
+}
+
+.dark-blue-c {
+  color: #1E3888 !important;
+}
+
+.light-blue-bg {
+  background-color: #47A8BD !important;
+}
+
+.light-blue-c {
+  color: #47A8BD !important;
+}
+
+.yellow-bg {
+  background-color: #F5E663 !important;
+}
+
+.yellow-c {
+  color: #F5E663 !important;
+}
+
+.orange-bg {
+  background-color: #FFAD69 !important;
+}
+
+.orange-c {
+  color: #FFAD69 !important;
+}
+
+.maroon-bg {
+  background-color: #9C3848 !important;
+}
+
+.maroon-c {
+  color: #9C3848 !important;
+}
+
+.light-grey-bg {
+  background-color: #EDF7F6 !important;
+}
+
+.light-grey-c {
+  color: #EDF7F6 !important;
+}
+
+.grey-bg {
+  background-color: #C0BDA5 !important;
+}
+
+.grey-c {
+  color: #C0BDA5 !important;
+}
+
+.black-bg {
+  background-color: #14080E !important;
+}
+
+.black-c {
+  color: #14080E !important;
+}
