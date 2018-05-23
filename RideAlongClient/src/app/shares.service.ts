@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SharesService {
-  private readonly rootUrl: string = 'url';
+  private readonly rootUrl: string = 'http://localhost:50235/api/shares';
 
   constructor(private http: HttpClient) { }
 

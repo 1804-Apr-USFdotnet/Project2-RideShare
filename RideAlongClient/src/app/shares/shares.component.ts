@@ -13,7 +13,10 @@ export class SharesComponent implements OnInit {
 
   ngOnInit() {
     this.sharesService.getAllShares().subscribe(
-      (response: Response) => console.log(response.json()),
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
       (error) => console.log(error)
     )
   }
