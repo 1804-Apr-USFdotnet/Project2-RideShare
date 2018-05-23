@@ -14,7 +14,7 @@ namespace RideAlongAPI.Persistence.Repositories
         {
         }
 
-        public IEnumerable<Share> GetDesiredShare(string startLocation = "empty", string goalLocation = "empty")
+        public IEnumerable<Share> GetDesiredShare(string startLocation, string goalLocation)
         {
             if (goalLocation != "empty")
             {
@@ -27,7 +27,7 @@ namespace RideAlongAPI.Persistence.Repositories
             }
 
             else
-                return Context.Shares.ToList();
+                return GetAll();
 
         }
 
@@ -49,14 +49,14 @@ namespace RideAlongAPI.Persistence.Repositories
         public IEnumerable<Share> GetDepartureCityWithMostShares()
         {
             var shares = Context.Shares.GroupBy(x => x.DepartureCity)
-                .OrderBy(x => x.Count()).FirstOrDefault().ToList();
+                .OrderByDescending(x => x.Count()).FirstOrDefault().ToList();
             return shares;
         }
 
         public IEnumerable<Share> GetDestinationCityWithMostShares()
         {
             var shares = Context.Shares.GroupBy(x => x.DestinationCity)
-                .OrderBy(x => x.Count()).FirstOrDefault().ToList();
+                .OrderByDescending(x => x.Count()).FirstOrDefault().ToList();
             return shares;
         }
 

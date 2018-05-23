@@ -83,5 +83,47 @@ namespace RideAlongAPI.Controllers
 
             return Ok();
         }
+
+        [Route("api/Shares-ByDate-Descending")]
+        public IHttpActionResult GetDateDescending()
+        {
+            var shares = _unitOfWork.Shares.GetDateDescending();
+            return Ok(shares);
+        }
+
+        [Route("api/Shares-Seats-Descending")]
+        public IHttpActionResult GetSeatsDescending()
+        {
+            var shares = _unitOfWork.Shares.GetSeatsDescending();
+            return Ok(shares);
+        }
+        
+        [Route("api/Shares-Most-Departing-City")]
+        public IHttpActionResult GetMostDepartedCity()
+        {
+            var shares = _unitOfWork.Shares.GetDepartureCityWithMostShares();
+            return Ok(shares);
+        }
+
+        [Route("api/Shares-Most-Destination-City")]
+        public IHttpActionResult GetMostDestinationCity()
+        {
+            var shares = _unitOfWork.Shares.GetDestinationCityWithMostShares();
+            return Ok(shares);
+        }
+
+        [Route("api/Shares-Search-Conditions-City/{desired}")]
+        public IHttpActionResult GetSearchDesired(string desired)
+        {
+            var shares = _unitOfWork.Shares.GetSearchConditions(desired);
+            return Ok(shares);
+        }
+
+        [Route("api/Shares-Setup-Ride/{startPoint}/{endPoint}")]
+        public IHttpActionResult GetRideSetup(string startPoint = "empty", string endPoint = "empty")
+        {
+            var shares = _unitOfWork.Shares.GetDesiredShare(startPoint, endPoint);
+            return Ok(shares);
+        }
     }
 }
