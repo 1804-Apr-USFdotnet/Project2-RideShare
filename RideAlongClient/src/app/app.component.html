@@ -7,14 +7,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item clickable nav-item-border" [routerLink]="['/']">
-          <a class="nav-link yellow-c">Home</a>
+        <li class="nav-item clickable nav-item-border"
+            [routerLink]="['user', 'sign-up']"
+            routerLinkActive="active">
+          <a class="nav-link yellow-c" >Sign Up</a>
         </li>
-        <li class="nav-item clickable nav-item-border" [routerLink]="['/about']">
-          <a class="nav-link yellow-c" >About</a>
-        </li>
-        <li class="nav-item clickable nav-item-border" [routerLink]="['/contact']">
-          <a class="nav-link yellow-c">Contact</a>
+        <li class="nav-item clickable nav-item-border"
+            [routerLink]="['user', 'sign-in']"
+            routerLinkActive="active">
+          <a class="nav-link yellow-c" >Sign In</a>
         </li>
       </ul>
     </div>
