@@ -244,6 +244,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SharesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Core\Domain\AccountModel.cs" />
     <Compile Include="Core\Domain\Share.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\IWithId.cs" />
@@ -255,6 +256,14 @@
     <Compile Include="Migrations\201805181611420_InitialDbModel.cs" />
     <Compile Include="Migrations\201805181611420_InitialDbModel.Designer.cs">
       <DependentUpon>201805181611420_InitialDbModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241715506_ChangeIdentityTableNames.cs" />
+    <Compile Include="Migrations\201805241715506_ChangeIdentityTableNames.Designer.cs">
+      <DependentUpon>201805241715506_ChangeIdentityTableNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241724349_AddFirstAndLastNameToUsers.cs" />
+    <Compile Include="Migrations\201805241724349_AddFirstAndLastNameToUsers.Designer.cs">
+      <DependentUpon>201805241724349_AddFirstAndLastNameToUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -346,6 +355,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805181611420_InitialDbModel.resx">
       <DependentUpon>201805181611420_InitialDbModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241715506_ChangeIdentityTableNames.resx">
+      <DependentUpon>201805241715506_ChangeIdentityTableNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241724349_AddFirstAndLastNameToUsers.resx">
+      <DependentUpon>201805241724349_AddFirstAndLastNameToUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
