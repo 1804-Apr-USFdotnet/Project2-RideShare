@@ -20,7 +20,7 @@ namespace RideAlongAPI
 
             //Enables CORS
             var cors = new EnableCorsAttribute("http://ec2-18-191-50-192.us-east-2.compute.amazonaws.com", "*", "*");
-            config.EnableCors();
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
