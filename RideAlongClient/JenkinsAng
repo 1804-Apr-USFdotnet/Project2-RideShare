@@ -1,6 +1,6 @@
 node('master') {
     stage('import') {
-            git https://github.com/1804-Apr-USFdotnet/Project2-RideShare.git
+            git 'https://github.com/1804-Apr-USFdotnet/Project2-RideShare.git'
     }
     stage('build') {
             dir ('RideAlongClient') {
