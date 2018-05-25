@@ -6,7 +6,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto" *ngIf="this.localStorage.getItem('userToken') !== null">
+        <li class="nav-item clickable nav-item-border">
+          <a (click)="this.logout()" class="nav-link yellow-c">Logout</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" *ngIf="this.localStorage.getItem('userToken') === null">
         <li class="nav-item clickable nav-item-border"
             [routerLink]="['user', 'sign-up']"
             routerLinkActive="active">

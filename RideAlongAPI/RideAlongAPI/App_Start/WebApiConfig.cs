@@ -19,8 +19,7 @@ namespace RideAlongAPI
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             //Enables CORS
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();

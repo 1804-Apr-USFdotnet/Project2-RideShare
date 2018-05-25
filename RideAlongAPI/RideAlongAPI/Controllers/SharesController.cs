@@ -5,11 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using RideAlongAPI.Core.Domain;
 using RideAlongAPI.Persistence;
 
 namespace RideAlongAPI.Controllers
 {
+    [Authorize]
     public class SharesController : ApiController
     {
         private readonly IUnitOfWork _unitOfWork;
