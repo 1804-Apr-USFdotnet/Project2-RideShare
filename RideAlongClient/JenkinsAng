@@ -22,7 +22,7 @@ node('master') {
 
     stage('package') {
             dir('RideAlongClient') {
-                bat 'npm run build -- --base-href /angularapp1/ --prod'
+                bat 'npm run build -- --base-href /RideAlongClient/ --prod'
                 bat 'copy /y web.config dist'
                 // // ng build inside jenkins workspace doesn't
                 // bat 'copy /y src\\favicon.ico dist'
