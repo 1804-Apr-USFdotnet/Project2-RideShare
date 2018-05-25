@@ -12,4 +12,20 @@ export class SharesService {
   getAllShares() {
     return this.http.get(this.rootUrl);
   }
+
+  getShare(id: number) {
+    return this.http.get(`${this.rootUrl}/${id}`);
+  }
+
+  createShare(share: any) {
+    return this.http.post(this.rootUrl, share);
+  }
+
+  updateShare(id: number, share: any) {
+    return this.http.put(`${this.rootUrl}/${id}`, share);
+  }
+
+  deleteShare(id: number) {
+    return this.http.delete(`${this.rootUrl}/${id}`);
+  }
 }
