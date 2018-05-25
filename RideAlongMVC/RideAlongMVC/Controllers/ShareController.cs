@@ -13,7 +13,7 @@ namespace RideAlongMVC.Controllers
     public class ShareController : Controller
     {
 
-        string WebAPIURL = "http://ec2-18-191-50-192.us-east-2.compute.amazonaws.com/RideAlongAPI";
+        string WebAPIURL = "http://localhost:50235";
         // GET: Share
         public ActionResult Index()
         {
