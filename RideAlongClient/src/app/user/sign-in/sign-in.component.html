@@ -2,21 +2,24 @@
   <h2>User Login</h2>
 </div>
 <div class="card-body">
-  <form #loginForm="ngForm" class="col-12 white">
-      <div class="row">
-        <div class="form-group col-12">
-          <input class="form-control" type="text" #UserName ngModel name="UserName" placeholder="Username" required>
-        </div>
+  <div *ngIf="isLoginError" class="red-text center error-message">
+    <i class="material-icons">error</i> Incorrect username or password
+  </div>
+  <form #loginForm="ngForm" (ngSubmit)="this.onSubmit(UserName.value, Password.value)" class="col-12 white">
+    <div class="row">
+      <div class="form-group col-12">
+        <input class="form-control" type="text" #UserName ngModel name="UserName" placeholder="Username" required>
       </div>
-      <div class="row">
-          <div class="form-group col-12">
-            <input class="form-control" type="password" #Password ngModel name="Password" placeholder="Password" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-12">
-            <button [disabled]="!loginForm.valid" class="btn btn-large btn-submit" type="submit">Login</button>
-          </div>
-        </div>
-    </form>
+    </div>
+    <div class="row">
+      <div class="form-group col-12">
+        <input class="form-control" type="password" #Password ngModel name="Password" placeholder="Password" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12">
+        <button [disabled]="!loginForm.valid" class="btn btn-large btn-submit" type="submit">Login</button>
+      </div>
+    </div>
+  </form>
 </div>

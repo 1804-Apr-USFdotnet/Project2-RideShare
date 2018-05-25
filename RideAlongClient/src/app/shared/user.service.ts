@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Response } from "@angular/http";
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -9,7 +9,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  readonly rootUrl = 'http://localhost:50235';
+  readonly rootUrl = 'http://localhost:50235/api';
 
   constructor(private http: HttpClient) { }
  
@@ -24,6 +24,16 @@ export class UserService {
 
     console.log(body);
 
-    return this.http.post(this.rootUrl + '/api/Account/register-user', body);
+    return this.http.post(this.rootUrl + '/Account/register-user', body);
+  }
+
+  userAuthentication(userName, password) {
+    var data = "username=" + userName + "&password=" + password + "&grant_type=password";
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
+    return this.http.post(this.rootUrl + '/token', data, { headers: reqHeader });
+  }
+
+  getUserClaims(){
+    return this.http.get(this.rootUrl + '/Account/get-user-claims');
   }
 }
