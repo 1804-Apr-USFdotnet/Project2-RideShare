@@ -15,6 +15,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using RideAlongAPI.Core.Domain;
 using RideAlongAPI.Models;
+using RideAlongAPI.Persistence;
 using RideAlongAPI.Providers;
 using RideAlongAPI.Results;
 
@@ -219,6 +220,24 @@ namespace RideAlongAPI.Controllers
             }
 
             return Ok();
+        }
+
+        [Route("register-user")]
+        [HttpPost]
+        [AllowAnonymous]
+        public IdentityResult Register(AccountModel model)
+        {
+            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(userStore);
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 3
+            };
+            IdentityResult result = manager.Create(user, model.Password);
+            return result;
         }
 
         // GET api/Account/ExternalLogin
