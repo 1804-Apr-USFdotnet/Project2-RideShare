@@ -29,6 +29,21 @@ namespace RideAlongAPI.Persistence
                     m.MapLeftKey("ShareId");
                     m.MapRightKey("UserId");
                 });
+
+            modelBuilder.Entity<ApplicationUser>()
+                .ToTable("User");
+            //AspNetRoles -> Role
+            modelBuilder.Entity<IdentityRole>()
+                .ToTable("Role");
+            //AspNetUserRoles -> UserRole
+            modelBuilder.Entity<IdentityUserRole>()
+                .ToTable("UserRole");
+            //AspNetUserClaims -> UserClaim
+            modelBuilder.Entity<IdentityUserClaim>()
+                .ToTable("UserClaim");
+            //AspNetUserLogins -> UserLogin
+            modelBuilder.Entity<IdentityUserLogin>()
+                .ToTable("UserLogin");
         }
         
         public static ApplicationDbContext Create()

@@ -1,0 +1,19 @@
+<div class="row mt-2 mb-2">
+  <div class="col-12">
+    <div class="col-12 col-md-3">
+      <div class="list-group">
+        <a [routerLink]="['/shares', 'new']" class="list-group-item">Add a Ride Share</a>
+      </div>
+    </div>
+    <div class="col-12 col-md-9 mt-2 mb-2" *ngFor="let share of this.shares">
+      <div class="card">
+        <div class="card-header">
+          {{ share?.DepartureCity }}
+        </div>
+        <div class="card-body">
+          {{ share?.DestinationCity }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

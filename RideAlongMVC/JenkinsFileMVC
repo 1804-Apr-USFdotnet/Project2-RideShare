@@ -30,5 +30,4 @@ node('master') {
         bat "msdeploy -verb:sync -source:package=\"%CD%\\Package.zip\" -dest:auto,computerName=\"https://ec2-35-172-118-250.compute-1.amazonaws.com:8172/msdeploy.axd\",userName=\"Administrator\",password=\"Baratheon96\",authtype=\"basic\",includeAcls=\"False\" -disableLink:AppPoolExtension -disableLink:ContentExtension -disableLink:CertificateExtension -setParam:\"IIS Web Application Name\"=\"Default Web Site/RideAlongMVC\" -enableRule:AppOffline -allowUntrusted"
         }
     }
-        
 }
