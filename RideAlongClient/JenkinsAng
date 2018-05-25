@@ -1,0 +1,41 @@
+node('master') {
+    stage('import') {
+            git https://github.com/1804-Apr-USFdotnet/Project2-RideShare.git
+    }
+    stage('build') {
+            dir ('RideAlongClient') {
+                bat 'npm install'
+                bat 'npm run build'
+            }
+        
+    }
+    stage('analyze') {
+        
+    }
+
+    stage('test') {
+            // dir('Training Code/Week 6/AngularApp') {
+            // 	bat 'npm test'
+            // }
+       
+        }
+
+    stage('package') {
+            dir('RideAlongClient') {
+                bat 'npm run build -- --base-href /angularapp1/ --prod'
+                bat 'copy /y web.config dist'
+                // // ng build inside jenkins workspace doesn't
+                // bat 'copy /y src\\favicon.ico dist'
+                // bat 'md dist\\assets\\images'
+                // bat 'copy /y src\\assets\\images\\*.png dist\\assets\\images'
+            }
+        
+      
+    }
+    stage('deploy') {
+            dir('RideAlongClient/dist/RideAlongClient') {
+                bat "msdeploy -verb:sync -source:contentPath=\"%CD%\" -dest:contentPath=\"Default Web Site/RideAlongClient\",wmsvc=ec2-18-216-109-19.us-east-2.compute.amazonaws.com,userName=Administrator,password=\"@Password1\" -enableRule:AppOffline -allowUntrusted"
+            }
+    }
+}
+
