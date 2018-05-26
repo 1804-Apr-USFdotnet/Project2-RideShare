@@ -1,5 +1,6 @@
+import { SharesService } from './../shared/shares.service';
 import { Component, OnInit } from '@angular/core';
-import { SharesService } from '../shares.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-shares',
@@ -8,8 +9,10 @@ import { SharesService } from '../shares.service';
 })
 export class SharesComponent implements OnInit {
   shares: any[];
+  isRoot: boolean;
 
-  constructor(private sharesService: SharesService) { }
+  constructor(private sharesService: SharesService,
+              private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.sharesService.getAllShares().subscribe(
@@ -18,6 +21,6 @@ export class SharesComponent implements OnInit {
         console.log(response);
       },
       (error) => console.log(error)
-    )
+    );
   }
 }
