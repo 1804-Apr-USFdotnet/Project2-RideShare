@@ -5,6 +5,15 @@
         <a [routerLink]="['/shares', 'new']" class="list-group-item">Add a Ride Share</a>
       </div>
     </div>
+
+    <div class = "col-12 col-md-9 mt-2 mb-2">
+      <div class = "list-group">
+        <button>I am button</button>
+        <button>I am another button </button>
+      </div>
+    </div>
+
+
     <div class="col-12 col-md-9 mt-2 mb-2" *ngFor="let share of this.shares">
       <div class="card">
         <div class="card-header">
