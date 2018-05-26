@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using RideAlongAPI.Core.Domain;
 using RideAlongAPI.Persistence;
 
@@ -15,11 +19,6 @@ namespace RideAlongAPI.Controllers
     public class SharesController : ApiController
     {
         private readonly IUnitOfWork _unitOfWork;
-
-        //public SharesController()
-        //    : this(new UnitOfWork(new ApplicationDbContext()))
-        //{
-        //}
 
         public SharesController(IUnitOfWork unitOfWork)
         {
@@ -48,6 +47,14 @@ namespace RideAlongAPI.Controllers
         // POST: api/Shares
         public IHttpActionResult Post(Share share)
         {
+            ClaimsIdentity ci = (ClaimsIdentity)RequestContext.Principal.Identity;
+            var claims = ci.Claims.AsQueryable().ToList();
+            var email = claims[1];
+
+            var user = _unitOfWork.Users.Find(u => u.Email == email.Value).FirstOrDefault();
+
+            share.Driver = user;
+
             if (!ModelState.IsValid)
                 return BadRequest();
 

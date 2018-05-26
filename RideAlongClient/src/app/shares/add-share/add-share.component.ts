@@ -1,3 +1,4 @@
+import { UserService } from './../../shared/user.service';
 import { User } from './../../shared/user.model';
 import { SharesService } from './../../shared/shares.service';
 import { NgForm } from '@angular/forms';
@@ -25,11 +26,14 @@ export class AddShareComponent implements OnInit {
       DepartureCity: '',
       DestinationCity: '',
       DepartureDate: '',
-      Seats: 0
+      Seats: 0,
+      Users: []
     }
   }
 
   onSubmit(form: NgForm) {
+    console.log(form.value);
+    
     this.SharesService.createShare(form.value)
       .subscribe(
         response => console.log(response),

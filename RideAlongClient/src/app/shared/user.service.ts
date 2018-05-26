@@ -22,8 +22,6 @@ export class UserService {
       LastName: user.LastName
     }
 
-    console.log(body);
-
     return this.http.post(this.rootUrl + '/Account/register-user', body);
   }
 
@@ -33,7 +31,7 @@ export class UserService {
     return this.http.post(this.rootUrl + '/token', data, { headers: reqHeader });
   }
 
-  getUserClaims(){
+  getUserClaims() {
     return this.http.get(this.rootUrl + '/Account/get-user-claims');
   }
 }

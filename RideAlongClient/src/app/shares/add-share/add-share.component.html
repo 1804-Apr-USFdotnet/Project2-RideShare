@@ -48,7 +48,7 @@
           Departure Date
         </label>
         <input
-          type="text"
+          type="date"
           class="form-control"
           name="DepartureDate"
           #DepartureDate="ngModel"
@@ -79,6 +79,16 @@
           Required Field!
         </p>
       </div>
+      <input
+        type="hidden"
+        name="Users"
+        #Users="ngModel"
+        [(ngModel)]="this.share.Users" />
+      <input
+        type="hidden"
+        name="Driver"
+        #Driver="ngModel"
+        [(ngModel)]="this.share.Driver" />
       <button
         [disabled]="!f.valid"
         class="btn btn-large btn-submit"

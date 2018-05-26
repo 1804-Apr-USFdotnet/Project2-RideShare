@@ -17,7 +17,6 @@ export class AppComponent {
   ngOnInit() {
     this.userService.getUserClaims().subscribe((data: any) => {
       this.userClaims = data;
- 
     });
   }
  

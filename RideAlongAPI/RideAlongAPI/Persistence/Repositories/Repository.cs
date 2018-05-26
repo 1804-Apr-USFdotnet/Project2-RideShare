@@ -8,7 +8,7 @@ using RideAlongAPI.Core.Repositories;
 
 namespace RideAlongAPI.Persistence.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IWithId
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly ApplicationDbContext Context;
 
@@ -19,7 +19,7 @@ namespace RideAlongAPI.Persistence.Repositories
 
         public TEntity Get(int id)
         {
-            return Context.Set<TEntity>().SingleOrDefault(e => e.Id == id);
+            return Context.Set<TEntity>().Find(id);
         }
 
         public IEnumerable<TEntity> GetAll()
@@ -29,7 +29,7 @@ namespace RideAlongAPI.Persistence.Repositories
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            return Context.Set<TEntity>().Where(predicate);
+            return Context.Set<TEntity>().Where(predicate).ToList();
         }
 
         public void Add(TEntity entity)
@@ -50,12 +50,6 @@ namespace RideAlongAPI.Persistence.Repositories
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
             Context.Set<TEntity>().RemoveRange(entities);
-        }
-
-        public void Update(TEntity entity)
-        {
-            var entityInDb = Context.Set<TEntity>().Find(entity.Id);
-            Context.Entry(entityInDb).CurrentValues.SetValues(entity);
         }
     }
 }

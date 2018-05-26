@@ -245,6 +245,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GetUserName.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SharesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -254,6 +255,7 @@
     <Compile Include="Core\IWithId.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\Repositories\ISharesRepository.cs" />
+    <Compile Include="Core\Repositories\IUsersRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -276,6 +278,7 @@
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Persistence\Repositories\Repository.cs" />
     <Compile Include="Persistence\Repositories\SharesRepository.cs" />
+    <Compile Include="Persistence\Repositories\UsersRepository.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
