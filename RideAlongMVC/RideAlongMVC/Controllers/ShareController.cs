@@ -22,13 +22,13 @@ namespace RideAlongMVC.Controllers
 
             using (var client = new HttpClient())
             {
-                var request = new HttpRequestMessage(HttpMethod.Get, new Uri("http://localhost:50235/api/Shares"));
+                var request = new HttpRequestMessage(HttpMethod.Get, new Uri("http://ec2-18-191-50-192.us-east-2.compute.amazonaws.com/RideAlongAPI/api/Shares"));
                 string cookieName = "APICookie";
 
                 string cookieValue = Request.Cookies[cookieName]?.Value ?? "";
                 //client.BaseAddress = new Uri(WebAPIURL);
 
-                client.DefaultRequestHeaders.Clear();
+                //client.DefaultRequestHeaders.Clear();
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
