@@ -6,22 +6,33 @@
       </div>
     </div>
 
-    <div class = "col-12 col-md-9 mt-2 mb-2">
-      <div class = "list-group">
-        <button>I am button</button>
-        <button>I am another button </button>
-      </div>
+    <div class = "col-12 col-md-3">
+      <div class = "btn-group">
+      <button (click)="MostDestinationCity()" class="list-group-item">MostDestinationCity</button>
+      <button (click)="MostDepartCity()" class="list-group-item">MostDepartingCity</button>
+      <button (click)="SortSeat()" class="list-group-item">SeatDescending</button>
+      <button (click)="SortDate()" class="list-group-item">DatesDescending</button>
     </div>
-
+    </div>
 
     <div class="col-12 col-md-9 mt-2 mb-2" *ngFor="let share of this.shares">
       <div class="card">
         <div class="card-header">
+          <h6 class = "card-title">Departing City</h6>
           {{ share?.DepartureCity }}
         </div>
         <div class="card-body">
+            <h6 class = "card-title">Destination City</h6>
           {{ share?.DestinationCity }}
         </div>
+        <div class="card-body">
+            <h6 class = "card-title">Seats Available</h6>
+            {{ share?.Seats }}
+          </div>
+          <div class="card-body">
+              <h6 class = "card-title">Departure Date</h6>
+              {{ share?.DepartureDate | date: 'medium' }}
+            </div>
       </div>
     </div>
   </div>

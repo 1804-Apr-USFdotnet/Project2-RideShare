@@ -18,46 +18,46 @@ export class SharesComponent implements OnInit {
         console.log(response);
       },
       (error) => console.log(error)
-    )
+    );
   }
 
-  SortSeat(){
+  SortSeat() {
     this.sharesService.DescendingSeatShare().subscribe(
       (response: any[]) => {
         this.shares = response;
         console.log(response);
       },
       (error) => console.log(error)
-    )
+    );
   }
 
-  SortDate(){
+  SortDate() {
     this.sharesService.DescendingDateShare().subscribe(
       (response: any[]) => {
         this.shares = response;
         console.log(response);
       },
       (error) => console.log(error)
-    )
+    );
   }
 
-  MostDepartingCity(){
+  MostDepartCity() {
     this.sharesService.MostDepartingCity().subscribe(
       (response: any[]) => {
         this.shares = response;
         console.log(response);
       },
       (error) => console.log(error)
-    )
+    );
   }
 
-  MostDestinationCity(){
+  MostDestinationCity() {
     this.sharesService.MostDestCity().subscribe(
       (response: any[]) => {
         this.shares = response;
         console.log(response);
       },
       (error) => console.log(error)
-    )
+    );
   }
 }

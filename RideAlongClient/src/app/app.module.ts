@@ -22,10 +22,10 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, canActivate:[AuthGuard] },
-  { path: 'about', component: AboutComponent, canActivate:[AuthGuard] },
-  { path: 'contact', component: ContactComponent, canActivate:[AuthGuard] },
-  { path: 'shares', component: SharesComponent, canActivate:[AuthGuard] },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
+  { path: 'shares', component: SharesComponent, canActivate: [AuthGuard] },
   { path: 'user', component: UserComponent, children: [
     { path: 'sign-up', component: SignUpComponent },
     { path: 'sign-in', component: SignInComponent }
@@ -55,10 +55,10 @@ const appRoutes: Routes = [
   providers: [
     UserService,
     AuthGuard,
-    { 
-      provide: HTTP_INTERCEPTORS, 
-      useClass: AuthInterceptor, 
-      multi: true 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
