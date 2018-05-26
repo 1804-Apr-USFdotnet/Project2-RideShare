@@ -13,21 +13,26 @@ namespace RideAlongMVC.Controllers
     public class ShareController : Controller
     {
 
-        string WebAPIURL = "http://localhost:50235";
+        //Uri WebAPIURL = new Uri("http://ec2-18-191-50-192.us-east-2.compute.amazonaws.com/RideAlongAPI");
         // GET: Share
         public ActionResult Index()
         {
             List<Share> shares = new List<Share>();
 
+
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(WebAPIURL);
+                var request = new HttpRequestMessage(HttpMethod.Get, new Uri("http://localhost:50235/api/Shares"));
+                string cookieName = "APICookie";
+
+                string cookieValue = Request.Cookies[cookieName]?.Value ?? "";
+                //client.BaseAddress = new Uri(WebAPIURL);
 
                 client.DefaultRequestHeaders.Clear();
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var task = client.GetAsync("api/Shares");
+                var task = client.SendAsync(request);
                 task.Wait();
 
                 HttpResponseMessage Res = task.Result;
