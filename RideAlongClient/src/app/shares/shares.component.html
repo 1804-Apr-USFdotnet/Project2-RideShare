@@ -5,7 +5,15 @@
     </div>
   </div>
   </div>
+
   
+  <div class = "col-12 col-md-4">
+  <div class = "btn-group">
+  <input #box (keyup.enter)="Search(box.value)" class="list-group-item">
+  <button (click) = "Search(box.value)" class="list-group-item">Search</button>
+  </div>  
+  </div>
+
 
   <div class = "col-12 col-md-2">
     <div class = "btn-group">

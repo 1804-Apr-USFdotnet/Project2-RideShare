@@ -63,4 +63,15 @@ export class SharesComponent implements OnInit {
       (error) => console.log(error)
     );
   }
+
+  Search(desiredText: string) {
+    this.sharesService.SearchFor(desiredText).subscribe(
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
+      (error) => console.log(error)
+    );
+
+  }
 }
