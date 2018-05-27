@@ -4,14 +4,47 @@
       <a [routerLink]="['/shares', 'new']" class="list-group-item">Add a Ride Share</a>
     </div>
   </div>
-  <div class="col-12 offset-md-1 col-md-10 mt-2 mb-2" *ngFor="let share of this.shares">
+  </div>
+
+  
+  <div class = "col-12 col-md-4">
+  <div class = "btn-group">
+  <input #box (keyup.enter)="Search(box.value)" class="list-group-item">
+  <button (click) = "Search(box.value)" class="list-group-item">Search</button>
+  </div>  
+  </div>
+
+
+  <div class = "col-12 col-md-2">
+    <div class = "btn-group">
+    <button (click)="MostDestinationCity()" class="list-group-item">MostDestinationCity</button>
+    <button (click)="MostDepartCity()" class="list-group-item">MostDepartingCity</button>
+    <button (click)="SortSeat()" class="list-group-item">SeatDescending</button>
+    <button (click)="SortDate()" class="list-group-item">DatesDescending</button>
+    <button (click)="ngOnInit()" class="list-group-item">AllShares</button>
+  </div>
+  </div>
+
+  <div class="col-12 col-md-9 mt-2 mb-2" *ngFor="let share of this.shares">
     <div class="card">
       <div class="card-header">
+         <!-- <h6 class = "card-title">Driver</h6>-->
+        <!--{{ share?.Driver.UserName }} -->
+        <div class = "card-body">
+        <h6 class = "card-title">Departing City</h6>
         {{ share?.DepartureCity }}
       </div>
       <div class="card-body">
+          <h6 class = "card-title">Destination City</h6>
         {{ share?.DestinationCity }}
       </div>
+      <div class="card-body">
+          <h6 class = "card-title">Seats Available</h6>
+          {{ share?.Seats }}
+        </div>
+        <div class="card-body">
+            <h6 class = "card-title">Departure Date</h6>
+            {{ share?.DepartureDate | date: 'medium' }}
+          </div>
     </div>
   </div>
-</div>
