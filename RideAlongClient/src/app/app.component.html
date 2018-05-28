@@ -8,9 +8,15 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto" *ngIf="this.localStorage.getItem('userToken') !== null">
         <li class="nav-item clickable nav-item-border">
+              <a [routerLink]="['/shares']" class="nav-link yellow-c">View Shares</a>  
+          </li>
+                  <li class="nav-item clickable nav-item-border">
+                      <a [routerLink]="['/shares','new']" class="nav-link yellow-c">Add a Ride Share</a>  
+                  </li>
+        <li class="nav-item clickable nav-item-border">
           <a (click)="this.logout()" class="nav-link yellow-c">Logout</a>
         </li>
-      </ul>
+          </ul>
       <ul class="navbar-nav ml-auto" *ngIf="this.localStorage.getItem('userToken') === null">
         <li class="nav-item clickable nav-item-border"
             [routerLink]="['user', 'sign-up']"

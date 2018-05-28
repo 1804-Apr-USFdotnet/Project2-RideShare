@@ -45,7 +45,11 @@
         </div>
         <div class="card-body">
             <h6 class = "card-title">Departure Date</h6>
-            {{ share?.DepartureDate | date: 'medium' }}
+            {{ share?.DepartureDate | date: 'short' }}
+          </div>
+          <div class="card-body">
+            <h6 class = "card-title">Email</h6>
+           <a href = "malito:{{share?.Email}}">{{share?.Email}}</a>
           </div>
     </div>
   </div>
