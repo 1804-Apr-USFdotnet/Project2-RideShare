@@ -1,5 +1,6 @@
+import { SharesService } from './../shared/shares.service';
 import { Component, OnInit } from '@angular/core';
-import { SharesService } from '../shares.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-shares',
@@ -8,8 +9,10 @@ import { SharesService } from '../shares.service';
 })
 export class SharesComponent implements OnInit {
   shares: any[];
+  isRoot: boolean;
 
-  constructor(private sharesService: SharesService) { }
+  constructor(private sharesService: SharesService,
+              private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.sharesService.getAllShares().subscribe(
@@ -18,6 +21,66 @@ export class SharesComponent implements OnInit {
         console.log(response);
       },
       (error) => console.log(error)
-    )
+    );
+  }
+
+  SortSeat() {
+    this.sharesService.DescendingSeatShare().subscribe(
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  SortDate() {
+    this.sharesService.DescendingDateShare().subscribe(
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  MostDepartCity() {
+    this.sharesService.MostDepartingCity().subscribe(
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  MostDestinationCity() {
+    this.sharesService.MostDestCity().subscribe(
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  Search(desiredText: string) {
+    this.sharesService.SearchFor(desiredText).subscribe(
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  getMyShares() {
+    this.sharesService.getMyShares().subscribe(
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
+      error => console.log(error)
+    );
   }
 }

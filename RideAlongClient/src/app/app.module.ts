@@ -20,12 +20,14 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AuthGuard } from './auth/auth.guard';
 
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { AddShareComponent } from './shares/add-share/add-share.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate:[AuthGuard] },
   { path: 'about', component: AboutComponent, canActivate:[AuthGuard] },
   { path: 'contact', component: ContactComponent, canActivate:[AuthGuard] },
   { path: 'shares', component: SharesComponent, canActivate:[AuthGuard] },
+  { path: 'shares/new', component: AddShareComponent, canActivate:[AuthGuard] },
   { path: 'user', component: UserComponent, children: [
     { path: 'sign-up', component: SignUpComponent },
     { path: 'sign-in', component: SignInComponent }
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     SharesComponent,
     SignUpComponent,
     UserComponent,
-    SignInComponent
+    SignInComponent,
+    AddShareComponent
   ],
   imports: [
     BrowserModule,

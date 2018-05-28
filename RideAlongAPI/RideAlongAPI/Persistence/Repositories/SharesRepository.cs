@@ -14,6 +14,12 @@ namespace RideAlongAPI.Persistence.Repositories
         {
         }
 
+        public void Update(Share share)
+        {
+            var entityInDb = Context.Set<Share>().Find(share.Id);
+            Context.Entry(entityInDb).CurrentValues.SetValues(share);
+        }
+
         public IEnumerable<Share> GetDesiredShare(string startLocation, string goalLocation)
         {
             if (goalLocation != "empty")

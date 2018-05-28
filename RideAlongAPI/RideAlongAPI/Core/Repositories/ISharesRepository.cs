@@ -12,6 +12,6 @@ namespace RideAlongAPI.Core.Repositories
         IEnumerable<Share> GetSearchConditions(string searchText);
         IEnumerable<Share> GetDepartureCityWithMostShares();
         IEnumerable<Share> GetDestinationCityWithMostShares();
-
+        void Update(Share share);
     }
 }

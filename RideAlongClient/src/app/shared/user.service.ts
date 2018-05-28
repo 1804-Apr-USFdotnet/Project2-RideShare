@@ -22,9 +22,13 @@ export class UserService {
       LastName: user.LastName
     }
 
-    console.log(body);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'No-Auth': 'True'
+      })
+    };
 
-    return this.http.post(this.rootUrl + '/Account/register-user', body);
+    return this.http.post(this.rootUrl + '/Account/register-user', body, httpOptions);
   }
 
   userAuthentication(userName, password) {
@@ -33,7 +37,7 @@ export class UserService {
     return this.http.post(this.rootUrl + '/token', data, { headers: reqHeader });
   }
 
-  getUserClaims(){
+  getUserClaims() {
     return this.http.get(this.rootUrl + '/Account/get-user-claims');
   }
 }
