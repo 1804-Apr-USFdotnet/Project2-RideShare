@@ -10,7 +10,7 @@ namespace RideAlongAPI.Core
     public interface IUnitOfWork : IDisposable
     {
         ISharesRepository Shares { get; }
-        IUsersRepository Users { get; }
+        IMembersRepository Members { get; }
         int Complete();
     }
 }

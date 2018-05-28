@@ -7,7 +7,7 @@ using RideAlongAPI.Core.Domain;
 
 namespace RideAlongAPI.Core.Repositories
 {
-    public interface IUsersRepository : IRepository<ApplicationUser>
+    public interface IMembersRepository : IRepository<Member>
     {
     }
 }

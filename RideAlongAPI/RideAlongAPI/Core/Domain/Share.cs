@@ -12,10 +12,9 @@ namespace RideAlongAPI.Core.Domain
         public int Seats { get; set; }
         public string DestinationCity { get; set; }
         public string DepartureCity { get; set; }
+        public string Email { get; set; }
         public DateTime DepartureDate { get; set; }
-        public ApplicationUser Driver { get; set; }
         public Member LeadMember { get; set; }
-        public virtual ICollection<ApplicationUser> Users { get; set; }
         public virtual ICollection<Member> Members { get; set; }
     }
 }
