@@ -30,7 +30,7 @@ namespace RideAlongMVC.Controllers
                 //request.Headers.Add("Cookie", new CookieHeaderValue(cookieName, cookieValue).ToString());
                 //client.BaseAddress = new Uri(WebAPIURL);
 
-                //client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Clear();
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -39,7 +39,9 @@ namespace RideAlongMVC.Controllers
 
                 HttpResponseMessage Res = task.Result;
 
-                if(Res.IsSuccessStatusCode)
+                
+
+                if (Res.IsSuccessStatusCode)
                 {
                     var response = Res.Content.ReadAsStringAsync().Result;
 
