@@ -1,33 +1,31 @@
-<div class="row mt-4">
-  <div class="col-12 offset-sm-2 col-sm-8 offset-md-4 col-md-4">
-    <div class="list-group">
-      <a [routerLink]="['/shares', 'new']" class="list-group-item">Add a Ride Share</a>
-    </div>
-  </div>
+  <div class = "col-12 col-md-9">
+      <div class = "btn-group">
+          <input #box (keyup.enter)="Search(box.value)" class="list-group-item">
+          <button (click) = "Search(box.value)" class="dropdown-item dark-blue-bg yellow-c">Search</button>
+          </div>  
+
+    <div ngbDropdown class="d-inline-block maroon-bg">
+      <button class="btn btn-primary maroon-bg yellow-c" id="dropdownBasic1" ngbDropdownToggle>Special Filters</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button (click)="MostDestinationCity()" class="dropdown-item orange-bg yellow-c">Most Destination City</button>
+      <button (click)="MostDepartCity()" class="dropdown-item black-bg yellow-c">Most Departing City</button>
+      <button (click)="SortSeat()" class="dropdown-item grey-bg yellow-c">Seat Descending</button>
+      <button (click)="SortDate()" class="dropdown-item light-blue-bg yellow-c">Dates Descending</button>
+      </div>
   </div>
 
-  
-  <div class = "col-12 col-md-4">
-  <div class = "btn-group">
-  <input #box (keyup.enter)="Search(box.value)" class="list-group-item">
-  <button (click) = "Search(box.value)" class="list-group-item">Search</button>
-  </div>  
-  </div>
-
-
-  <div class = "col-12 col-md-2">
-    <div class = "btn-group">
-    <button (click)="MostDestinationCity()" class="list-group-item">Most Destination City</button>
-    <button (click)="MostDepartCity()" class="list-group-item">Most Departing City</button>
-    <button (click)="SortSeat()" class="list-group-item">Seat Descending</button>
-    <button (click)="SortDate()" class="list-group-item">Dates Descending</button>
-    <button (click)="ngOnInit()" class="list-group-item">All Shares</button>
-    <button (click)="getMyShares()" class="list-group-item">Get My Shares</button>
-  </div>
+    <div ngbDropdown class="d-inline-block orange-bg">
+      <button class="btn btn-primary orange-bg yellow-c" id="dropdownBasic1" ngbDropdownToggle>Revert & Personal</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button (click)="ngOnInit()" class="dropdown-item dark-blue-bg yellow-c">All Shares</button>
+        <button (click)="getMyShares()" class="dropdown-item maroon-bg yellow-c">Personal Shares</button>
+      </div>
+    </div> 
+   
   </div>
 
   <div class="col-12 col-md-9 mt-2 mb-2" *ngFor="let share of this.shares">
-    <div class="card">
+    <div class="card"></div>
       <div class="card-header">
          <!-- <h6 class = "card-title">Driver</h6>-->
         <!--{{ share?.Driver.UserName }} -->
