@@ -7,9 +7,9 @@ using RideAlongAPI.Core.Repositories;
 
 namespace RideAlongAPI.Persistence.Repositories
 {
-    public class UsersRepository : Repository<ApplicationUser>, IUsersRepository
+    public class MembersRepository : Repository<Member>, IMembersRepository
     {
-        public UsersRepository(ApplicationDbContext context)
+        public MembersRepository(ApplicationDbContext context)
             : base(context)
         {
         }

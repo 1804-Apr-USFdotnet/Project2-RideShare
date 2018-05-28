@@ -8,7 +8,6 @@ namespace RideAlongAPI.Core.Domain
 {
     public class ApplicationUser : IdentityUser
     {
-        public virtual ICollection<Share> Shares { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 

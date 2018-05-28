@@ -22,7 +22,13 @@ export class UserService {
       LastName: user.LastName
     }
 
-    return this.http.post(this.rootUrl + '/Account/register-user', body);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'No-Auth': 'True'
+      })
+    };
+
+    return this.http.post(this.rootUrl + '/Account/register-user', body, httpOptions);
   }
 
   userAuthentication(userName, password) {

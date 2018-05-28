@@ -10,6 +10,7 @@ namespace RideAlongAPI.Persistence
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Share> Shares { get; set; }
+        public DbSet<Member> Members { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -21,13 +22,13 @@ namespace RideAlongAPI.Persistence
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Share>()
-                .HasMany(s => s.Users)
-                .WithMany(u => u.Shares)
+                .HasMany(s => s.Members)
+                .WithMany(m => m.Shares)
                 .Map(m =>
                 {
-                    m.ToTable("RideShares");
+                    m.ToTable("Carpools");
                     m.MapLeftKey("ShareId");
-                    m.MapRightKey("UserId");
+                    m.MapRightKey("MemberId");
                 });
 
             modelBuilder.Entity<ApplicationUser>()

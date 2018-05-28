@@ -16,11 +16,11 @@ namespace RideAlongAPI.Persistence
         {
             _context = context;
             Shares = new SharesRepository(_context);
-            Users = new UsersRepository(_context);
+            Members = new MembersRepository(_context);
         }
 
         public ISharesRepository Shares { get; }
-        public IUsersRepository Users { get; }
+        public IMembersRepository Members { get; }
 
         public void Dispose()
         {

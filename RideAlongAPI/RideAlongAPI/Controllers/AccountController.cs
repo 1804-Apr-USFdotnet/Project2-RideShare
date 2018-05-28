@@ -14,6 +14,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using RideAlongAPI.Core;
 using RideAlongAPI.Core.Domain;
 using RideAlongAPI.Models;
 using RideAlongAPI.Persistence;
@@ -28,14 +29,17 @@ namespace RideAlongAPI.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
+        private IUnitOfWork _unitOfWork;
 
         public AccountController()
         {
+            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
+            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
@@ -233,6 +237,15 @@ namespace RideAlongAPI.Controllers
             var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
+            _unitOfWork.Members.Add(new Member
+            {
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                UserName = model.UserName,
+                Shares = new List<Share>()
+            });
+            _unitOfWork.Complete();
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 3
