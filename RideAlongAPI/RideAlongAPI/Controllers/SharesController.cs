@@ -51,7 +51,7 @@ namespace RideAlongAPI.Controllers
             var claims = ci.Claims.AsQueryable().ToList();
             var email = claims[1];
 
-            var user = _unitOfWork.Users.Find(u => u.Email == email.Value).FirstOrDefault();
+            var user = _unitOfWork.Members.Find(u => u.Email == email.Value).FirstOrDefault();
 
             //share.Driver = user;
 
