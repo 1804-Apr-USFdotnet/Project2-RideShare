@@ -24,11 +24,6 @@ namespace RideAlongMVC.Controllers
             using (var client = new HttpClient(handler))
             {
                 var request = new HttpRequestMessage(HttpMethod.Get, new Uri("http://localhost:50235/api/Shares"));
-                string cookieName = "APICookie";
-
-                string cookieValue = Request.Cookies[cookieName]?.Value ?? "";
-                //request.Headers.Add("Cookie", new CookieHeaderValue(cookieName, cookieValue).ToString());
-                //client.BaseAddress = new Uri(WebAPIURL);
 
                 client.DefaultRequestHeaders.Clear();
 
