@@ -27,6 +27,7 @@ namespace RideAlongAPI.Controllers
         }
 
         // GET: api/Shares
+        [AllowAnonymous]
         public IHttpActionResult Get()
         {
             var shares = _unitOfWork.Shares.GetAll();
