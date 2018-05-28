@@ -72,6 +72,15 @@ export class SharesComponent implements OnInit {
       },
       (error) => console.log(error)
     );
+  }
 
+  getMyShares() {
+    this.sharesService.getMyShares().subscribe(
+      (response: any[]) => {
+        this.shares = response;
+        console.log(response);
+      },
+      error => console.log(error)
+    );
   }
 }

@@ -12,6 +12,7 @@ export class SharesService {
   private readonly custDestUrl: string = 'http://localhost:50235/api/Shares-Most-Destination-City';
   private readonly SearchUrl: string = 'http://localhost:50235/api/Shares-Search-Conditions-City/';
   private readonly SetUpUrl: string = 'http://localhost:50235/api/Shares-Setup-Ride/';
+  private readonly myShares: string = 'http://localhost:50235/api/my-shares/';
 
   constructor(private http: HttpClient) { }
 
@@ -57,5 +58,9 @@ export class SharesService {
 
   SetUpRide(departingCity: string, arrivingCity: string ) {
     return this.http.get(`${this.SetUpUrl}/${departingCity}/${arrivingCity}`);
+  }
+
+  getMyShares() {
+    return this.http.get(this.myShares);
   }
 }
