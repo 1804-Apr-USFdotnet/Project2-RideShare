@@ -1,0 +1,16 @@
+body, html {
+    height: 100%;
+}
+ 
+.jumbotron{
+    width: 100%;
+    position: relative;
+    margin-left: -30vw;
+    height: 500px;
+    margin-top: 100px;
+    left: 50%;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/f9/Night_view_from_Westin_Tokyo.jpg");
+    background-size: cover;
+    color: white
+   }
+
