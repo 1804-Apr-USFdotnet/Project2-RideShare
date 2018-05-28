@@ -65,6 +65,5 @@ namespace RideAlongAPI.Persistence.Repositories
                 .OrderByDescending(x => x.Count()).FirstOrDefault().ToList();
             return shares;
         }
-
     }
 }

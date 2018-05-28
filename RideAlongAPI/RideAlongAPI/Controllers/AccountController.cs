@@ -242,7 +242,8 @@ namespace RideAlongAPI.Controllers
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                UserName = model.UserName
+                UserName = model.UserName,
+                Shares = new List<Share>()
             });
             _unitOfWork.Complete();
             manager.PasswordValidator = new PasswordValidator

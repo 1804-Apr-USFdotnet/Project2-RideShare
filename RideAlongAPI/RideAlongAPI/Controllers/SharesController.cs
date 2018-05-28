@@ -26,6 +26,9 @@ namespace RideAlongAPI.Controllers
         }
 
         // GET: api/Shares
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("api/shares")]
         public IHttpActionResult Get()
         {
             var shares = _unitOfWork.Shares.GetAll();
@@ -34,6 +37,7 @@ namespace RideAlongAPI.Controllers
         }
 
         // GET: api/Shares/5
+        [HttpGet]
         public IHttpActionResult Get(int id)
         {
             var share = _unitOfWork.Shares.Get(id);
@@ -45,18 +49,16 @@ namespace RideAlongAPI.Controllers
         }
 
         // POST: api/Shares
+        [HttpPost]
+        [Route("api/shares")]
         public IHttpActionResult Post(Share share)
         {
-            ClaimsIdentity ci = (ClaimsIdentity)RequestContext.Principal.Identity;
-            var claims = ci.Claims.AsQueryable().ToList();
-            var email = claims[1];
-
-            var user = _unitOfWork.Members.Find(u => u.Email == email.Value).FirstOrDefault();
-
-            //share.Driver = user;
-
             if (!ModelState.IsValid)
                 return BadRequest();
+
+            var member = GetEmail();
+
+            share.Email = member;
 
             _unitOfWork.Shares.Add(share);
             _unitOfWork.Complete();
@@ -65,6 +67,7 @@ namespace RideAlongAPI.Controllers
         }
 
         // PUT: api/Shares/5
+        [HttpPut]
         public IHttpActionResult Put(int id, Share share)
         {
             if (!ModelState.IsValid)
@@ -81,6 +84,7 @@ namespace RideAlongAPI.Controllers
         }
 
         // DELETE: api/Shares/5
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var share = _unitOfWork.Shares.Get(id);
@@ -94,6 +98,7 @@ namespace RideAlongAPI.Controllers
         }
 
         [Route("api/Shares-ByDate-Descending")]
+        [HttpGet]
         public IHttpActionResult GetDateDescending()
         {
             var shares = _unitOfWork.Shares.GetDateDescending();
@@ -101,6 +106,7 @@ namespace RideAlongAPI.Controllers
         }
 
         [Route("api/Shares-Seats-Descending")]
+        [HttpGet]
         public IHttpActionResult GetSeatsDescending()
         {
             var shares = _unitOfWork.Shares.GetSeatsDescending();
@@ -108,6 +114,7 @@ namespace RideAlongAPI.Controllers
         }
         
         [Route("api/Shares-Most-Departing-City")]
+        [HttpGet]
         public IHttpActionResult GetMostDepartedCity()
         {
             var shares = _unitOfWork.Shares.GetDepartureCityWithMostShares();
@@ -115,6 +122,7 @@ namespace RideAlongAPI.Controllers
         }
 
         [Route("api/Shares-Most-Destination-City")]
+        [HttpGet]
         public IHttpActionResult GetMostDestinationCity()
         {
             var shares = _unitOfWork.Shares.GetDestinationCityWithMostShares();
@@ -122,6 +130,7 @@ namespace RideAlongAPI.Controllers
         }
 
         [Route("api/Shares-Search-Conditions-City/{desired}")]
+        [HttpGet]
         public IHttpActionResult GetSearchDesired(string desired)
         {
             var shares = _unitOfWork.Shares.GetSearchConditions(desired);
@@ -129,10 +138,26 @@ namespace RideAlongAPI.Controllers
         }
 
         [Route("api/Shares-Setup-Ride/{startPoint}/{endPoint}")]
+        [HttpGet]
         public IHttpActionResult GetRideSetup(string startPoint = "empty", string endPoint = "empty")
         {
             var shares = _unitOfWork.Shares.GetDesiredShare(startPoint, endPoint);
             return Ok(shares);
+        }
+
+        [HttpGet]
+        [Route("api/my-shares")]
+        public IHttpActionResult GetMyShares()
+        {
+            var email = GetEmail();
+            var shares = _unitOfWork.Shares.Find(s => s.Email == email);
+            return Ok(shares);
+        }
+
+        public string GetEmail()
+        {
+            ClaimsIdentity ci = (ClaimsIdentity) User.Identity;
+            return ci.Claims.ToList()[1].Value;
         }
     }
 }

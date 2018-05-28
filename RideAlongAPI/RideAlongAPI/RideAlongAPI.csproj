@@ -284,6 +284,26 @@
     <Compile Include="Migrations\201805280124509_AddManyToManyRelationshipForMembersAndShares.Designer.cs">
       <DependentUpon>201805280124509_AddManyToManyRelationshipForMembersAndShares.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805281640163_RemoveCustomUserShareRelationship.cs" />
+    <Compile Include="Migrations\201805281640163_RemoveCustomUserShareRelationship.Designer.cs">
+      <DependentUpon>201805281640163_RemoveCustomUserShareRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281642344_RemoveSharesFromUserTable.cs" />
+    <Compile Include="Migrations\201805281642344_RemoveSharesFromUserTable.Designer.cs">
+      <DependentUpon>201805281642344_RemoveSharesFromUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281651445_RemoveUsersFromSharesTable.cs" />
+    <Compile Include="Migrations\201805281651445_RemoveUsersFromSharesTable.Designer.cs">
+      <DependentUpon>201805281651445_RemoveUsersFromSharesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281653508_RemoveDriverFromSharesTable.cs" />
+    <Compile Include="Migrations\201805281653508_RemoveDriverFromSharesTable.Designer.cs">
+      <DependentUpon>201805281653508_RemoveDriverFromSharesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281827474_AddEmailToShares.cs" />
+    <Compile Include="Migrations\201805281827474_AddEmailToShares.Designer.cs">
+      <DependentUpon>201805281827474_AddEmailToShares.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -390,6 +410,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805280124509_AddManyToManyRelationshipForMembersAndShares.resx">
       <DependentUpon>201805280124509_AddManyToManyRelationshipForMembersAndShares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281640163_RemoveCustomUserShareRelationship.resx">
+      <DependentUpon>201805281640163_RemoveCustomUserShareRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281642344_RemoveSharesFromUserTable.resx">
+      <DependentUpon>201805281642344_RemoveSharesFromUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281651445_RemoveUsersFromSharesTable.resx">
+      <DependentUpon>201805281651445_RemoveUsersFromSharesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281653508_RemoveDriverFromSharesTable.resx">
+      <DependentUpon>201805281653508_RemoveDriverFromSharesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281827474_AddEmailToShares.resx">
+      <DependentUpon>201805281827474_AddEmailToShares.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

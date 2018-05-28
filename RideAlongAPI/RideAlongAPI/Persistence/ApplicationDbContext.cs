@@ -22,16 +22,6 @@ namespace RideAlongAPI.Persistence
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Share>()
-                .HasMany(s => s.Users)
-                .WithMany(u => u.Shares)
-                .Map(m =>
-                {
-                    m.ToTable("RideShares");
-                    m.MapLeftKey("ShareId");
-                    m.MapRightKey("UserId");
-                });
-
-            modelBuilder.Entity<Share>()
                 .HasMany(s => s.Members)
                 .WithMany(m => m.Shares)
                 .Map(m =>
