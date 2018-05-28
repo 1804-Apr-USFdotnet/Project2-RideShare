@@ -53,7 +53,7 @@ namespace RideAlongAPI.Controllers
 
             var user = _unitOfWork.Users.Find(u => u.Email == email.Value).FirstOrDefault();
 
-            share.Driver = user;
+            //share.Driver = user;
 
             if (!ModelState.IsValid)
                 return BadRequest();

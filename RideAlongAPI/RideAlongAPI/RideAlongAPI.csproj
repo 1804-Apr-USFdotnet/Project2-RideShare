@@ -250,6 +250,7 @@
     <Compile Include="Controllers\SharesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\Domain\AccountModel.cs" />
+    <Compile Include="Core\Domain\Member.cs" />
     <Compile Include="Core\Domain\Share.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\IWithId.cs" />
@@ -270,6 +271,18 @@
     <Compile Include="Migrations\201805241724349_AddFirstAndLastNameToUsers.cs" />
     <Compile Include="Migrations\201805241724349_AddFirstAndLastNameToUsers.Designer.cs">
       <DependentUpon>201805241724349_AddFirstAndLastNameToUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805280100435_AddMembersTable.cs" />
+    <Compile Include="Migrations\201805280100435_AddMembersTable.Designer.cs">
+      <DependentUpon>201805280100435_AddMembersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805280121443_AddLeadMemberColumnToSharesTable.cs" />
+    <Compile Include="Migrations\201805280121443_AddLeadMemberColumnToSharesTable.Designer.cs">
+      <DependentUpon>201805280121443_AddLeadMemberColumnToSharesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805280124509_AddManyToManyRelationshipForMembersAndShares.cs" />
+    <Compile Include="Migrations\201805280124509_AddManyToManyRelationshipForMembersAndShares.Designer.cs">
+      <DependentUpon>201805280124509_AddManyToManyRelationshipForMembersAndShares.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -368,6 +381,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805241724349_AddFirstAndLastNameToUsers.resx">
       <DependentUpon>201805241724349_AddFirstAndLastNameToUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805280100435_AddMembersTable.resx">
+      <DependentUpon>201805280100435_AddMembersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805280121443_AddLeadMemberColumnToSharesTable.resx">
+      <DependentUpon>201805280121443_AddLeadMemberColumnToSharesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805280124509_AddManyToManyRelationshipForMembersAndShares.resx">
+      <DependentUpon>201805280124509_AddManyToManyRelationshipForMembersAndShares.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
