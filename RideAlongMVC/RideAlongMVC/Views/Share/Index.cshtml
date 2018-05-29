@@ -7,11 +7,7 @@
 
 
 <h2>Index</h2>
-<scripts>
-    function MoveToAngular{
-    window.location.replace("");
-    }
-</scripts>
+
 <body>
     <div>
 
@@ -25,7 +21,7 @@
         {
             if (floater)
             {
-                <table class="table table-striped" float="left" style="width:49%">
+                <table class="table table-striped" float="left" style="width:40%">
                     <thead>
                         <tr>
                             <td>Departure</td>
@@ -42,15 +38,16 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <button onclick="MoveToAngular">Check Out this Ride</button>
+                            <a href="http://localhost:4200/api/shares" class="btn btn-default">Check Out this Ride</a>
                         </td>
                         @*<td colspan="2">@Html.ActionLink("Check out this ride", "Move to Angular")</td>*@
                     </tr>
                 </table>
+                floater = false;
             }
             else
             {
-                <table class="table table-striped" float="right">
+                <table class="table table-striped" float="right" style=" width:40%">
                     <thead>
                         <tr>
                             <td>Departure</td>
@@ -67,11 +64,12 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <button onclick="MoveToAngular">Check Out this Ride</button>
+                            <a href="http://localhost:4200/api/shares" class="btn btn-default">Check Out this Ride</a>
                         </td>
                         @*<td colspan="2">@Html.ActionLink("Check out this ride", "Move to Angular")</td>*@
                     </tr>
                 </table>
+                floater = true;
             }
         }
     }
