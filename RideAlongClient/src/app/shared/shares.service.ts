@@ -5,14 +5,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SharesService {
-  private readonly rootUrl: string = `http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api/shares`;
-  private readonly custDateUrl: string = `http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api/Shares-ByDate-Descending`;
-  private readonly custSeatUrl: string = `http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api/Shares-Seats-Descending`;
-  private readonly custDepartUrl: string = `http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api/Shares-Most-Departing-City`;
-  private readonly custDestUrl: string = `http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api/Shares-Most-Destination-City`;
-  private readonly SearchUrl: string = `http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api/Shares-Search-Conditions-City/`;
-  private readonly SetUpUrl: string = `http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api/Shares-Setup-Ride/`;
-  private readonly myShares: string = `http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api/my-shares/`;
+  private readonly rootUrl: string = `http://localhost:50235/api/shares`;
+  private readonly custDateUrl: string = `http://localhost:50235/api/Shares-ByDate-Descending`;
+  private readonly custSeatUrl: string = `http://localhost:50235/api/Shares-Seats-Descending`;
+  private readonly custDepartUrl: string = `http://localhost:50235/api/Shares-Most-Departing-City`;
+  private readonly custDestUrl: string = `http://localhost:50235/api/Shares-Most-Destination-City`;
+  private readonly SearchUrl: string = `http://localhost:50235/api/Shares-Search-Conditions-City/`;
+  private readonly SetUpUrl: string = `http://localhost:50235/api/Shares-Setup-Ride/`;
+  private readonly myShares: string = `http://localhost:50235/api/my-shares/`;
 
   constructor(private http: HttpClient) { }
 
