@@ -9,11 +9,12 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  readonly rootUrl = 'http://localhost:50235/api';
+  readonly rootUrl = `${this.domain}/api`;
+  private readonly domain: string = 'http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI';
 
   constructor(private http: HttpClient) { }
  
-  registerUser(user: User){
+  registerUser(user: User) {
     const body: User = {
       UserName: user.UserName,
       Password: user.Password,
