@@ -23,14 +23,14 @@ export class AuthInterceptor implements HttpInterceptor {
           succ => { return; },
           err => {
             if (err.status === 401)
-              this.router.navigateByUrl('/user/login');
+              this.router.navigateByUrl('/user/sign-in');
             else
               console.log(err.status);
           }
         );
     }
     else {
-      this.router.navigateByUrl('/user/login');
+      this.router.navigateByUrl('/user/sign-in');
     }
     
     return new Observable<HttpEvent<any>>();

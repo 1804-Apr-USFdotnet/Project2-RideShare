@@ -9,8 +9,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private readonly domain: string = 'http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI';
-  private readonly rootUrl: string = `${this.domain}/api`;
+  private readonly rootUrl: string = 'http://ec2-18-222-157-137.us-east-2.compute.amazonaws.com/RideAlongAPI/api';
 
   constructor(private http: HttpClient) { }
  
